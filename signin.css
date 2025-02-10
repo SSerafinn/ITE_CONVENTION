@@ -1,0 +1,122 @@
+/* Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: url('hero.png') center center / cover no-repeat;
+    background-color: #f9f9f9; /* Fallback color */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Main Container */
+  .signin-container {
+    display: flex;
+    max-width: 900px;
+    width: 90%;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Left Image Section */
+  .signin-image {
+    flex: 1;
+    margin-left: 10px;
+    background: url('logo_new.png') center center / contain no-repeat;
+    background-color: #f9f9f9; /* Fallback color */
+    min-height: 400px;
+  }
+  
+  /* Right Form Section */
+  .signin-form {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 300px;
+  }
+  
+  .signin-form h2 {
+    font-size: 2rem;
+    color: #003b73;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .signin-form .form-control {
+    margin-bottom: 1rem;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .signin-form .btn {
+    height: 45px;
+    border-radius: 8px;
+    background-color: #003b73;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  .signin-form .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .signin-form .links {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .signin-form .links a {
+    color: #003b73;
+    text-decoration: none;
+  }
+  
+  .signin-form .links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer Styling */
+  .footer {
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: #003b73;
+    color: #fff;
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  /* Responsive Styles for Mobile */
+  @media (max-width: 768px) {
+    .signin-container {
+      flex-direction: column; /* Stack elements vertically on smaller screens */
+      width: 95%;
+    }
+  
+    .signin-image {
+      min-height: 250px; /* Reduce image height on small screens */
+    }
+  
+    .signin-form {
+      padding: 1.5rem;
+    }
+  
+    .signin-form h2 {
+      font-size: 1.8rem;
+    }
+  
+    .footer {
+      position: relative; /* Allow footer to flow naturally on small screens */
+    }
+  }
+  
