@@ -21,9 +21,6 @@
       <img src="assets/logo_new.png" alt="Your Conference Logo" />
     </a>
     <!-- Hamburger button for mobile -->
-    <button class="nav-toggle" aria-label="Toggle Navigation">
-      <i class="fas fa-bars"></i>
-    </button>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#schedule">Schedule</a></li>
@@ -537,16 +534,6 @@
           const target = tab.getAttribute('data-day');
           document.getElementById(target).classList.add('active');
         });
-      });
-    });
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-  
-      navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
       });
     });
   </script>
