@@ -80,6 +80,56 @@ body {
   transform: translateY(-2px);
 }
 
+
+/* Base styles for the toggle button (hidden on larger screens) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  /* Show the hamburger button */
+  .nav-toggle {
+    display: block;
+  }
+  
+  /* Hide the nav links initially */
+  .nav-links {
+    position: absolute;
+    top: 70px; /* Adjust based on your navbar height */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: none;  /* Hidden by default */
+    z-index: 1000;
+  }
+  
+  /* Show nav links when active */
+  .nav-links.active {
+    display: flex;
+  }
+  
+  /* Center nav items in mobile view */
+  .nav-links li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+  
+  /* Optional: If you prefer the Log-In button to be part of the mobile menu,
+     you might hide it here and include it inside the .nav-links list instead */
+  .btn-ticket {
+    display: none;
+  }
+}
+
+
 /* ===================================
    HERO SECTION
 ===================================== */
