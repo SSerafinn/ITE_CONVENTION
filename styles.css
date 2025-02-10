@@ -8,7 +8,7 @@
   body {
     font-family: Arial, sans-serif; /* Or any modern, clean font */
     color: #fff;
-    background-color: #121212; /* Dark background */
+    background-color: #ffffff; /* Dark background */
     line-height: 1.5;
   }
   
@@ -118,11 +118,21 @@
   height: 100px;
   background-image: url('divider.png'); /* Replace with your file path */
   background-size: cover; /* Ensures the image covers the entire area */
-  background-position: center; /* Centers the background */
-  background-repeat: no-repeat; /* Prevents tiling */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.303);
-  padding: 1rem 0; /* Adds spacing using padding */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Enhanced heavy drop shadow */
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1), 
+              0px -15px 30px rgba(0, 0, 0, 0.1); 
+              
+  margin-bottom: -50px; /* Helps in visibility if it's getting hidden */
+  padding: 1rem 0; /* Adds spacing */
+  position: relative; /* Ensures it doesn’t interfere with nearby elements */
+  z-index: 10; /* Ensures shadow visibility over other elements */
 }
+
+
+
 
 
 
@@ -481,4 +491,100 @@
   font-size: 0.9rem;
 }
   
+/* Previous Conventions Section */
+/* Previous Conventions Section */
+.previous-conventions {
+  position: relative; /* Ensures proper layering */
+  padding: 4rem 2rem;
+  color: #fff; /* Ensure text is readable */
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Pseudo-element for background with opacity */
+.previous-conventions::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('bg_prev.png') center center / cover no-repeat;
+  opacity: 0.3; /* Adjust this value for more or less transparency */
+  z-index: -1; /* Places background behind content */
+  background-color: #ffffff;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #003b73;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+/* Video Grid */
+.convention-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Video Cards */
+.video-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Video Frame */
+.video-card iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+}
+
+/* Video Information */
+.video-info {
+  padding: 1rem;
+}
+
+.video-info h3 {
+  font-size: 1.3rem;
+  color: #003b73;
+  margin-bottom: 0.5rem;
+}
+
+.video-info p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.video-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.video-link:hover {
+  text-decoration: underline;
+}
   
