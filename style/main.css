@@ -18,52 +18,56 @@ body {
 /* ===================================
    NAVBAR (Fixed with Drop Shadow)
 ===================================== */
+/* Navbar Styles */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);  /* Drop shadow added */
+  z-index: 1000;
+  /* Define default state with smooth transition */
+  top: 0;
+  opacity: 1;
+  transition: top 1s ease-in-out, opacity 1s ease-in-out;
 }
 
-.logo {
-  font-size: 1.25rem;
-  font-weight: bold;
+/* When .hidden is added, the navbar slides up and fades out */
+.navbar.hidden {
+  top: -100px; /* Adjust this value if your navbar height differs */
+  opacity: 0;
 }
 
-.logo img {
+.navbar .logo img {
   max-height: 50px;
-  display: inline-block;
-  vertical-align: middle;
 }
 
+/* Nav links */
 .nav-links {
-  list-style-type: none;
+  list-style: none;
   display: flex;
   gap: 1rem;
+  margin: 0;
 }
 
-/* Existing nav-links styles with modifications for bigger buttons */
 .nav-links li a {
   text-decoration: none;
   color: #073854;
   transition: color 0.2s;
-  font-size: 1.1rem;      /* Increased font size for larger text */
-  padding: 0.5rem 1rem;   /* Added padding to enlarge the clickable area */
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
 }
 
 .nav-links li a:hover {
   color: #73b6aa;
 }
 
-
-/* Updated button style for nav (Log-In button) */
+/* Log-In button */
 .btn-ticket {
   background-color: #073854;
   color: #fff;
@@ -71,7 +75,6 @@ body {
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -80,6 +83,68 @@ body {
   transform: translateY(-2px);
 }
 
+/* Hamburger Toggle (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 90vh;
+  background: url('assets/hero.png') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #073854;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 500px) {
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Adjust if navbar height changes */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+  
+  /* Optionally hide the Log-In button on mobile */
+  .btn-ticket {
+    display: none;
+  }
+}
 
 
 /* ===================================

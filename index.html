@@ -16,20 +16,24 @@
 <body>
 
   <!-- ======= NAVBAR ======= -->
-  <nav class="navbar">
-    <a href="#home" class="logo">
-      <img src="assets/logo_new.png" alt="Your Conference Logo" />
-    </a>
-    <!-- Hamburger button for mobile -->
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#schedule">Schedule</a></li>
-      <li><a href="#speakers">Speakers</a></li>
-      <li><a href="#previous">Previous</a></li>
-      <li><a href="#competitions">Competitions</a></li>
-    </ul>
-    <a href="signin.html" class="btn btn-ticket">Log-In</a>
-  </nav>
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="#home" class="logo">
+    <img src="assets/logo_new.png" alt="Your Conference Logo">
+  </a>
+  <!-- Hamburger button for mobile -->
+  <button class="nav-toggle" aria-label="Toggle Navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#previous">Previous</a></li>
+    <li><a href="#competitions">Competitions</a></li>
+  </ul>
+  <a href="signin.html" class="btn btn-ticket">Log-In</a>
+</nav>
   
 
   <!-- ======= HERO SECTION ======= -->
@@ -42,7 +46,7 @@
         Join the community, learn new things!
       </p>
       <div class="hero-buttons">
-        <a href="#competitions" class="btn btn-ticket">Sign-Up for Events</a>
+        <a href="#competitions" class="btn btn-ticket">Register for Events</a>
       </div>
     </div>
   </header>
@@ -510,7 +514,7 @@
   
     <!-- Developer Note -->
     <div class="dev-note">
-      design made with <span>&#10084;</span> by Serafin Gazzingan
+      design made with 💜 by Serafin Gazzingan
       <br>jgazzingan@spup.edu.ph
     </div>
   </footer>
@@ -533,6 +537,35 @@
           const target = tab.getAttribute('data-day');
           document.getElementById(target).classList.add('active');
         });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile nav toggle
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      navToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+      });
+      
+      // Hide navbar on scroll down past hero and show on scroll up
+      let lastScrollTop = 0;
+      const heroSection = document.querySelector('.hero-section');
+      const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+      const navbar = document.querySelector('.navbar');
+      
+      window.addEventListener('scroll', function() {
+        let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        // If we've scrolled past the hero section and we're scrolling down...
+        if (currentScrollTop > heroHeight && currentScrollTop > lastScrollTop) {
+          navbar.classList.add('hidden');
+        } else {
+          // Scrolling up or not past the hero section
+          navbar.classList.remove('hidden');
+        }
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
       });
     });
   </script>
