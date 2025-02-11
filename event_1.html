@@ -193,7 +193,7 @@
             // Share Button Functionality
             const shareBtn = document.querySelector('.share-btn');
             const copyNotice = document.getElementById('copy-notice');
-    
+
             shareBtn.addEventListener('click', function () {
                 // Copy event link to clipboard
                 const dummyInput = document.createElement('input');
@@ -202,10 +202,10 @@
                 dummyInput.select();
                 document.execCommand('copy');
                 document.body.removeChild(dummyInput);
-    
+
                 // Show floating notification
                 copyNotice.classList.add('show');
-    
+
                 // Hide after 3 seconds smoothly
                 setTimeout(() => {
                     copyNotice.classList.add('hide');
@@ -214,21 +214,21 @@
                     }, 500);
                 }, 3000);
             });
-    
+
             // Modal for Registration
             const registerBtn = document.querySelector('.register-btn');
             const modal = document.getElementById('register-modal');
             const modalContent = document.querySelector('.modal-content');
             const closeModal = document.querySelector('.close-btn');
-    
+
             registerBtn.addEventListener('click', function () {
                 modal.classList.add('show');
             });
-    
+
             closeModal.addEventListener('click', function () {
                 modal.classList.remove('show');
             });
-    
+
             // Close modal if user clicks outside of it
             window.addEventListener('click', function (event) {
                 if (event.target === modal) {
@@ -237,7 +237,7 @@
             });
         });
     </script>
-    
+
 
 </body>
 
