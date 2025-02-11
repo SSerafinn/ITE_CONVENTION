@@ -1,0 +1,557 @@
+/* ===================================
+   RESET & BASE STYLES
+===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Or any modern, clean font */
+    color: #fff;
+    background-color: #ffffff;
+    line-height: 1.5;
+    padding-top: 70px; /* Adjust to your navbar height so content isn’t hidden */
+}
+
+/* ===================================
+     NAVBAR (Fixed with Drop Shadow)
+  ===================================== */
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    /* Define default state with smooth transition */
+    top: 0;
+    opacity: 1;
+    transition:
+        top 1s ease-in-out,
+        opacity 1s ease-in-out;
+}
+
+/* When .hidden is added, the navbar slides up and fades out */
+.navbar.hidden {
+    top: -100px; /* Adjust this value if your navbar height differs */
+    opacity: 0;
+}
+
+.navbar .logo img {
+    max-height: 50px;
+}
+
+/* Nav links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #073854;
+    transition: color 0.2s;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+}
+
+.nav-links li a:hover {
+    color: #73b6aa;
+}
+
+/* Log-In button */
+.btn-ticket {
+    background-color: #073854;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.btn-ticket:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Hamburger Toggle (hidden on desktop) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 90vh;
+    background: url("assets/hero.png") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #073854;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 500px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Adjust if navbar height changes */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 1rem 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    /* Optionally hide the Log-In button on mobile */
+    .btn-ticket {
+        display: none;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .event-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.event-banner {
+    
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-banner img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(6, 2, 77, 0.1);
+}
+
+.description {
+    margin-top: 30px;
+}
+
+.description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #073854;
+}
+
+.description p {
+    color: #666;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-header {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .event-header {
+        text-align: left;
+    }
+}
+
+.event-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #073854;
+}
+
+.event-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.register-btn {
+    background-color: #073854;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.register-btn:hover {
+    background-color: #73b6aa;
+}
+
+.info-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #073854;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-icon {
+    width: 24px;
+    height: 24px;
+    color: #666;
+}
+
+.info-content h4 {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #073854;
+}
+
+.info-content p {
+    color: #666;
+}
+
+.event-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #073854;
+}
+
+.type-badge {
+    background-color: #73b6aa;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.share-btn {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    color: #666;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.share-btn:hover {
+    background-color: #f5f5f5;
+}
+
+/* ============================
+   Floating Notification (Smooth Animation)
+   ============================ */
+   #copy-notice {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, transform 0.3s ease-out;
+}
+
+/* Show state */
+#copy-notice.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
+
+/* Hide state */
+#copy-notice.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) scale(0.9);
+}
+
+/* ============================
+   Modal Enhancements (Smooth and Sleek)
+   ============================ */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Modal animation */
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    width: 400px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+/* Close button styling */
+.close-btn {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #073854;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #73b6aa;
+}
+
+/* ============================
+   Form Styling (Modern and Sleek)
+   ============================ */
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.modal label {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    font-weight: 500;
+}
+
+.modal input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+.modal input:focus {
+    border: 1px solid #073854;
+}
+
+/* Modern button style */
+.modal button {
+    background: #073854;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.modal button:hover {
+    background: #73b6aa;
+    transform: translateY(-2px);
+}
+
+
+
+/* ===================================
+   FOOTER STYLES
+===================================== */
+/* Footer Styles */
+.footer {
+    background-color: #1f1f1f;
+    color: #ccc;
+    padding: 2rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logos {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-logos img {
+    max-height: 50px;
+}
+
+.uni-info {
+    margin-top: 1rem;
+}
+
+.uni-info p {
+    margin: 0.25rem 0;
+    line-height: 1.4;
+}
+
+.footer-right {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    color: #ccc;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover,
+.footer-links a:hover {
+    color: #73b6aa;
+}
+
+.dev-note {
+    text-align: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+
+    .footer-logos {
+        justify-content: center;
+    }
+}

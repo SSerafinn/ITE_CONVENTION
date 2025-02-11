@@ -34,7 +34,9 @@ body {
   /* Define default state with smooth transition */
   top: 0;
   opacity: 1;
-  transition: top 1s ease-in-out, opacity 1s ease-in-out;
+  transition:
+      top 1s ease-in-out,
+      opacity 1s ease-in-out;
 }
 
 /* When .hidden is added, the navbar slides up and fades out */
@@ -75,7 +77,9 @@ body {
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+      background-color 0.3s ease,
+      transform 0.3s ease;
 }
 
 .btn-ticket:hover {
@@ -95,7 +99,7 @@ body {
 /* Hero Section */
 .hero-section {
   height: 90vh;
-  background: url('assets/hero.png') no-repeat center center/cover;
+  background: url("assets/hero.png") no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,37 +119,36 @@ body {
 /* Mobile Styles */
 @media (max-width: 500px) {
   .nav-toggle {
-    display: block;
+      display: block;
   }
-  
+
   .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px; /* Adjust if navbar height changes */
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 1rem 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px; /* Adjust if navbar height changes */
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
   }
-  
+
   .nav-links.active {
-    display: flex;
+      display: flex;
   }
-  
+
   .nav-links li {
-    margin: 0.5rem 0;
-    text-align: center;
+      margin: 0.5rem 0;
+      text-align: center;
   }
-  
+
   /* Optionally hide the Log-In button on mobile */
   .btn-ticket {
-    display: none;
+      display: none;
   }
 }
-
 
 /* ===================================
    HERO SECTION
@@ -873,13 +876,16 @@ body {
    FOOTER STYLES
 ===================================== */
 .footer {
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
   color: #ccc;
-  padding: 2rem 2rem;
-  font-size: 0.9rem;
+  padding: 2rem;
+  margin-top: auto;
+  width: 100%;
 }
 
 .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -887,23 +893,24 @@ body {
   gap: 2rem;
 }
 
-/* Left Side: University Logos & Info */
 .footer-left {
   flex: 1;
   min-width: 250px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .footer-logos {
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .footer-logos img {
   max-height: 50px;
+}
+
+.uni-info {
+  margin-top: 1rem;
 }
 
 .uni-info p {
@@ -911,7 +918,6 @@ body {
   line-height: 1.4;
 }
 
-/* Right Side: Links & Social Media */
 .footer-right {
   flex: 1;
   min-width: 250px;
@@ -932,44 +938,45 @@ body {
   transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: #73b6aa;
-}
-
 .footer-social {
   display: flex;
   gap: 1rem;
 }
 
 .footer-social a {
-  text-decoration: none;
   color: #ccc;
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
-.footer-social a:hover {
+.footer-social a:hover,
+.footer-links a:hover {
   color: #73b6aa;
 }
 
-/* Developer Note */
 .dev-note {
   text-align: center;
   margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
   font-size: 0.75rem;
   color: #888;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
   .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
   }
-  
+
   .footer-right {
-    align-items: center;
+      align-items: center;
+  }
+
+  .footer-logos {
+      justify-content: center;
   }
 }
+
 
