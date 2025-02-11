@@ -539,13 +539,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Mobile nav toggle
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      navToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-      });
-      
       // Hide navbar on scroll down past hero and show on scroll up
       let lastScrollTop = 0;
       const heroSection = document.querySelector('.hero-section');
